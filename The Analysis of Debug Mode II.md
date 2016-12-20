@@ -92,7 +92,7 @@ public void handleReloadJS() {
   }
 ```
 在`reloadJSFromServer`方法中，`DevManager`通过调用`DevServerHelper`的`downloadBundleFromURL`方法来拉取JS文件。
-####2.3 服务器运行状态
+###2.3 服务器运行状态
 `DevManager`在创建ReactContext时候会查询package server的状态，如果server挂掉了，则从本地目录中加载JS，否则从server端拉取JS文件：
 ```java
 mDevSupportManager.isPackagerRunning(//判断当前server运行状态
