@@ -194,14 +194,14 @@ public void invoke(CatalystInstance catalystInstance, ExecutorToken executorToke
         } catch (UnexpectedNativeTypeException e) {
 				....
         }
-
           mMethod.invoke(BaseJavaModule.this, mArguments);
-		.....
+		....
     }
 ```
 在`invoke`方法中，`JavaMethod`首先利用之前在构造函数中初始化完毕的参数提取器`ArgumentExtractor`从JS端传递过来的参数数组`ReadableNativeArray`中提取出参数，随后通过反射来完成Native模块中的方法的调用。
 
 ----------
+
 ###JavaScriptModule
 `JavaScriptModule`接口封装了JS模块负责向Native端提供接口服务，它的具体实现当然是在JS端完成。那么在Native端，该接口存在的意义是什么呢？
 `JavaScriptModule`在Native端起到一个标记的作用，表示在JS层有一个相同名字的模块，提供了接口中声明的方法给Native层调用。通过`CatalystInstance`的`getJSModule`方法可以对该模块中同名方法进行调用。
